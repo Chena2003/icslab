@@ -5,7 +5,7 @@
 uint64_t multimod(uint64_t, uint64_t, uint64_t);
 
 void test(uint64_t a, uint64_t b, uint64_t m) {
-  #define U64 "%" PRIu64
+  #define U64 "%" PRIu64 // PRIu64保证可以在32位和64位上正确输出
   printf(U64 " * " U64 " mod " U64 " = " U64 "\n", a, b, m, multimod(a, b, m));
 }
 

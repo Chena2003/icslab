@@ -25,9 +25,13 @@ int main(int argc, char *argv[]) {
     for(int i = 0; i < loop; i ++) {
         uint64_t x, y, m;
 
-        x = rand() % INT32_MAX + 1;
-        y = rand() % INT32_MAX + 1;
-        m = rand() % INT32_MAX + 1;
+        x = ((uint64_t)rand() * rand()) % INT64_MAX + 1;
+        y = ((uint64_t)rand() * rand()) % INT64_MAX + 1;
+        m = ((uint64_t)rand() * rand()) % INT64_MAX + 1;
+
+        // x = -3ULL;
+        // y = -3ULL;
+        // m = -1ULL;
 
         sprintf(code_buf, code_fomat, x, y, m);
 
@@ -35,6 +39,7 @@ int main(int argc, char *argv[]) {
         assert(fp);
 
         fscanf(fp, "%s", buf);
+        printf("(%lu * %lu) mod %lu =  %s\n", x, y, m, buf);
         pclose(fp);
 
         uint64_t res = multimod(x, y, m);
