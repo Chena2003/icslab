@@ -27,7 +27,7 @@ $(NAME)-32.so: $(DEPS) # 32bit shared library
 
 
 run: all
-	./$(NAME)-64
+	./$(NAME)-$(ARCH) $(RUNTIMES)
 
 clean:
 	rm -f $(NAME)-64 $(NAME)-32 $(NAME)-64.so $(NAME)-32.so

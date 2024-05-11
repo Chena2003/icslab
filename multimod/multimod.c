@@ -23,7 +23,7 @@ uint64_t mymod(uint64_t x, uint64_t m) {
   return x;
 }
 
-uint64_t muti(uint64_t x, int shift, uint64_t m) { // 乘法
+uint64_t multi(uint64_t x, int shift, uint64_t m) { // 乘法
   uint64_t r1, r2;
 
   int hbit = highbit(x);
@@ -35,7 +35,7 @@ uint64_t muti(uint64_t x, int shift, uint64_t m) { // 乘法
     if(r1 == 0 && r2 < m) break;
 
     uint64_t t1 = 0, t2 = m;
-    uint64_t pt1, pt2;
+    uint64_t pt1 = 0, pt2 = 0;
     int p = 0;
     while(r1 > t1 || (r1 == t1 && r2 >= t2)) {
       p ++;
@@ -74,7 +74,7 @@ uint64_t multimod(uint64_t a, uint64_t b, uint64_t m) {
     if(!flag)
       continue;
 
-    uint64_t y = muti(b, i, m);
+    uint64_t y = multi(b, i, m);
 
     uint64_t t = result + y;
 
